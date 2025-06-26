@@ -47,7 +47,7 @@ def get_quantizer(model, args, optimizer=None):
     return quantizer
 
 
-def load_model(path_or_package, strict=False):
+def load_model(path_or_package, strict=False, weights_only=True):
     """Load a model from the given serialized model, either given as a dict (already loaded)
     or a path to a file on disk."""
     if isinstance(path_or_package, dict):
@@ -56,7 +56,7 @@ def load_model(path_or_package, strict=False):
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             path = path_or_package
-            package = torch.load(path, 'cpu')
+            package = torch.load(path, 'cpu', weights_only=weights_only)
     else:
         raise ValueError(f"Invalid type for {path_or_package}.")
 
