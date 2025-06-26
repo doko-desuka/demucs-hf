@@ -1,5 +1,4 @@
 # Commenting out some reqs already covered by Colab.
-# please make sure you have already a pytorch install that is cuda enabled!
 dora-search
 # einops
 # julius>=0.2.3
