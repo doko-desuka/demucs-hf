@@ -104,7 +104,7 @@ class LocalRepo(ModelOnlyRepo):
             raise ModelLoadingError(f'Could not find pre-trained model with signature {sig}.')
         if sig in self._checksums:
             check_checksum(file, self._checksums[sig])
-        return load_model(file)
+        return load_model(file, weights_only=False)
 
     def list_model(self) -> tp.Dict[str, tp.Union[str, Path]]:
         return self._models
